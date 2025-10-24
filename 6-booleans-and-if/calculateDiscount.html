@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>    
+    
+    <script>
+        let age = 67;
+        let isHoliday = true;
+        (age <=6 || age >= 65) && !isHoliday ? console.log("discount") : console.log('no dicount')
+        
+        let randomNum = Math.random()
+        let result = ''
+        let guess = 'heads'
+
+        randomNum < 0.5 ? result = 'heads' : result = 'tails'
+
+        guess === result ? console.log(`you win: computer guess: ${result}`) : console.log(`you lose: computer guess: ${result}`)
+    </script>
+</body>
+</html>
