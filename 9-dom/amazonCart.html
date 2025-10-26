@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Amzon shipping calc</p>
+    <p>Orders under $40 =+ $10 shiping</p>
+    <p>Orders over $40 = FREE shiping</p>
+
+    <input type="text" name="" id="cost" onkeydown="handleCostKeyDown()" />
+    <button onclick="calculateShipping()">calculate</button>
+
+    <p class="js-cost"></p>
+
+    <script>
+         "use strict";
+      let displayCost = document.querySelector(".js-cost");
+
+      function handleCostKeyDown() {
+        if (event.key === "Enter") {
+          calculateShipping();
+        }
+      }
+
+      function calculateShipping() {
+        let cost = Number(document.querySelector("#cost").value);
+        console.log(cost);
+
+        if (cost < 40) {
+          console.log(cost);
+          cost += 10;
+        } else if (cost > 40) {
+          cost;
+        }
+
+        displayCost.innerHTML = cost;
+        console.log(typeof cost);
+      }
+    </script>
+  </body>
+</html>

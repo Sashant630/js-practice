@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>sub button</p>
+    <button class="js-subscibe-btn" onclick="
+    subscibe()
+    // const btnElement = document.querySelector('.js-subscibe-btn');
+    // if (btnElement.innerHTML === 'subscribe') {
+    //     btnElement.innerHTML = 'subscribed'
+    // } else {
+    //     btnElement.innerHTML = 'subscribe'
+    // }
+    // btnElement.innerText === 'subscribe' ? btnElement.innerHTML = 'subscribed' : btnElement.innerHTML = 'subscribe'
+    ">
+        subscribe
+</button>
+    <script>
+        // console.log(document)
+
+        function subscibe() {
+            const subscibeBtn = document.querySelector('.js-subscibe-btn')
+            subscibeBtn.innerHTML === 'subscribe' ? subscibeBtn.innerHTML = 'subscribed' : subscibeBtn.innerHTML = 'subscribe'
+            // return subscibeBtn
+        }
+    </script>
+</body>
+</html>

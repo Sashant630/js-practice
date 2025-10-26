@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="playGame('heads')">heads</button>
+    <button onclick="playGame('tails')">tails</button>
+    <button
+      onclick="
+    score.wins = 0
+    score.lose = 0"
+    >
+      reset
+    </button>
+
+    <script>
+      const score = JSON.parse(localStorage.getItem("toss")) || "";
+
+      function playGame(guess) {
+        let result = Math.random() < 0.5 ? "heads" : "tails";
+
+        if (result === "heads") {
+          result = "win";
+        } else if (result === "tails") {
+          result = "lost";
+        }
+
+              console.log(`${result}, your choice ${guess}, coin ${result}
+          wins ${score.wins}, lose ${score.lose}`);
+
+      localStorage.setItem("toss", JSON.stringify(score));
+      }
+
+      //   function playGame(guess) {
+      //     let computerGuess = updatecomputerGuess();
+
+      //     if (guess === "heads") {
+      //       if (computerGuess === "heads") {
+      //         result = "win";
+      //       } else if (computerGuess === "tails") {
+      //         result = "lost";
+      //       }
+      //     }
+
+      //     if (guess === "tails") {
+      //       if (computerGuess === "tails") {
+      //         result = "win";
+      //       } else {
+      //         result = "lost";
+      //       }
+      //     }
+
+      //     if (result === 'win') {
+      //         score.wins++
+      //     } else {
+      //         score.lose++
+      //     }
+
+      //     localStorage.setItem('toss', JSON.stringify(score))
+
+      //     console.log(`${result}, your choice ${guess}, coin ${computerGuess}
+      //     wins ${score.wins}, lose ${score.lose}`);
+      //   }
+
+      //   function updatecomputerGuess() {
+      //     const randomGuess = Math.random();
+      //     let computerGuess = "";
+
+      //     if (randomGuess >= 0 && randomGuess < 0.5) {
+      //       computerGuess = "heads";
+      //     } else {
+      //       computerGuess = "tails";
+      //     }
+
+      //     return computerGuess;
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="playGame('rock')">rock</button>
+    <button onclick="playGame('paper')">paper</button>
+    <button onclick="playGame('scissor')">scissor</button>
+    <button onclick=" 
+    score.wins = 0; 
+    score.losses = 0; 
+    score.tie = 0; 
+    localStorage.removeItem('score')">reset</button>
+  </body>
+  <script>
+    let score = JSON.parse(localStorage.getItem('score')) || {wins: 0, losses: 0, tie: 0} 
+
+   /* if (!score) {
+        score = {
+            wins: 0,
+            losses: 0,
+            tie: 0
+        }
+    }*/
+
+    // console.log() 
+
+    // let userInput = prompt(`enter rock, paper or scissor`);
+    // console.log(userInput);
+
+        //  playGame(userInput)
+
+    function playGame(playerMove) {
+      let computerMove = updateComputerChoice();
+      let result = '';
+
+      if (playerMove === 'rock') {
+        if (computerMove === 'rock') {
+          result = 'tie';
+        } else if (computerMove === 'paper') {
+          result = 'you lose';
+        } else if (computerMove === 'scissor') {
+          result = 'you win';
+        }
+      } else if (playerMove === 'paper') {
+        if (computerMove === 'rock') {
+          result = 'you win';
+        } else if (computerMove === 'paper') {
+          result = 'tie';
+        } else if (computerMove === 'scissor') {
+          result = 'you lose';
+        }
+      } else if (playerMove === 'scissor') {
+        if (computerMove === 'rock') {
+          result = 'you lose';
+        } else if (computerMove === 'paper') {
+          result = 'you win';
+        } else if (computerMove === 'scissor') {
+          result = 'tie';
+        }
+      }
+
+      if (result === 'you win') {
+        score.wins += 1
+      } else if (result === 'you lose') {
+        score.losses += 1 
+      } else if (result === 'tie') {
+        score.tie += 1
+      }
+      
+      localStorage.setItem('score', JSON.stringify(score))
+
+      alert(` ${result}, your move ${playerMove}, computer move ${computerMove}
+    wins: ${score.wins}, Losses: ${score.losses}, tie: ${score.tie}`);
+    }
+
+    function updateComputerChoice() {
+      const randomNum = Math.random();
+      let computerMove = '';
+      if (randomNum >= 0 && randomNum < 1 / 3) {
+        computerMove = 'rock';
+      } else if (randomNum >= 1 / 3 && randomNum < 2 / 3) {
+        computerMove = 'paper';
+      } else if (randomNum >= 2 / 3 && randomNum < 3) {
+        computerMove = 'scissor';
+      }
+      return computerMove;
+    }
+
+    // const products = {
+    //     name: 'shirt',
+    //     ['delivery-date']: '1 day',
+    //     rating: {
+    //         stars: 4.5,
+    //         count: 60
+    //     },
+    //     fun: function function1 () {
+    //         console.log('inside obj')
+    //     }
+    // }
+
+    // console.log(products.name)
+    // console.log(products['name'])
+    // console.log(products['delivery-date'])
+    // console.log(products.rating.stars)
+    // console.log(products.fun)
+    // products.fun()
+
+
+    // console.log(JSON.stringify(products))  //output is string, object is not converted
+    // const jsonString = JSON.stringify(products)
+    // console.log(JSON.parse(jsonString))  // convert back to object
+
+
+    // localstorage 
+    // localStorage only store string
+    // upto 10mb storgae 
+
+    console.log('first'.length)  // property length
+    console.log('first'.toLocaleUpperCase())  // method touppercase
+
+    const obj1 = {
+        message: 'hello'
+    }
+
+    const obj2 = obj1;
+
+    obj1.message = "good job"
+    console.log(obj1) // value changed even tho it was const, because obj are stored as references
+
+    const obj3 = {
+        message: 'good job'
+    }
+
+    console.log(obj3 === obj2)  // you are comparing values but objects are = when you compare by references
+    console.log(obj2 === obj1)  // here it is true as compared with refernces
+
+    const obj4 = {
+        message: 'good job',
+        price: 799
+    }
+
+    // const message = obj4.message
+    const { message, price } = obj4 //destructuring - used to move out the obj property and save it into varible
+    console.log(message)
+    console.log(price)
+
+    const obj5 = {
+        // message: message
+        message,
+        /*method: function function1() {
+            console.log('hello')
+        }*/
+
+        method() {
+            console.log('hello world')
+        }
+    }
+
+    console.log(obj5)
+    obj5.method()
+
+
+
+  </script>
+</html>
