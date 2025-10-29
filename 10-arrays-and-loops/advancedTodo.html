@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Todo List</p>
+
+    <input type="text" name="" id="" class="js-input" />
+    <button onclick="updateTodoList()">Add</button>
+
+    <div class="js-todo-display"></div>
+
+    <script>
+      let todoList = ["oto"];
+
+      renderTodo();
+
+      function renderTodo() {
+        let todoListItem = ''
+        for (let i = 0; i < todoList.length; i++) {
+          console.log(todoList[i]);
+          const todo = todoList[i];
+          const html = `<span>${todo}</span><button onclick='deleteTodo()'>delete</button>`;
+          todoListItem += html;
+          return todoListItem
+        }
+
+        let displayTodo = document.querySelector(".js-todo-display");
+        displayTodo.innerHTML = todoListItem;
+      }
+
+      // function deleteTodo() {
+      //   const deleteTodo = document.querySelector(".js-delete-todo");
+      //   todoListItem.pop();
+      // }
+
+      function updateTodoList() {
+        const inputElem = document.querySelector(".js-input");
+        let name = inputElem.value;
+
+        todoList.push(name);
+        console.log(todoList);
+        renderTodo();
+        inputElem.value = "";
+      }
+    </script>
+  </body>
+</html>

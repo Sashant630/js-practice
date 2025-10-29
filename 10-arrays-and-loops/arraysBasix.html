@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="" class="js-input" />
+    <button onclick="userArray()">Add</button>
+
+    <div class="js-name-display"></div>
+
+    <script>
+      // let inputArray = [];
+      let todoList = ["value1", "value2"];
+
+      renderTodo()
+
+      function renderTodo() {
+        let todoListItem = "";
+
+        for (let i = 0; i < todoList.length; i++) {
+          const todo = todoList[i];
+          const html = `<p>${todo}</p>`;
+          console.log(html);
+          todoListItem += html;
+        }
+
+        let nameDisplay = document.querySelector(".js-name-display");
+        nameDisplay.innerHTML = todoListItem;
+        console.log(nameDisplay)
+      }
+
+      function userArray() {
+        const inputElem = document.querySelector(".js-input");
+        let name = inputElem.value;
+
+        todoList.push(name);
+        console.log(todoList);
+
+        renderTodo()
+        inputElem.value = "";
+
+      }
+
+      // let arr = ["test", "best", "rest"];
+
+      // for (let i = 0; i <= arr.length - 1; i++) {
+      //   // arr[i]
+      //   console.log(arr[i])
+      // }
+
+      // let nums = [1, 2, 3]
+      // let total = 0 // acumulator
+
+      // for (let i = 0; i < nums.length; i++) {
+      //   total += nums[i]
+      // }
+      // console.log(total)
+      // console.log(nums)
+
+      // let nums = [1, 2, 3];
+      // let total = []; // acumulator
+
+      // for (let i = 0; i < nums.length; i++) {
+      //   total.push( nums[i]*2);
+      // }
+      // console.log(total);
+      // console.log(nums);
+    </script>
+  </body>
+</html>
