@@ -124,10 +124,20 @@ cartBtn.forEach((button) => {
         matchingItem.quantity += 1
       } else {
         cart.push({
-          productName: productName,
+          productId: productId,
           quantity: 1
         })
       }
+    // console.log(cart)
+
+    let cartQuantity = 0
+    cart.forEach((item) => {
+      if(item) {
+        cartQuantity += item.quantity
+      }
+    })
+
+    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
     console.log(cart)
   });
 });
